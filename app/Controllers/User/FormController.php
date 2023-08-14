@@ -53,7 +53,7 @@ class FormController extends BaseController
     if (isset($_GET['semester'])) {
       $semester = $_GET['semester'];
       if ($semester != NULL) {
-        $dataLayout['semester'] = $this->service->filterSemester($semester);
+        $dataLayout['semester'] = $this->service->filterSemesterUser($semester);
       }
     }
 

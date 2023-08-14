@@ -3,10 +3,9 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
-use App\Models\FormModel;
 use App\Services\FormService;
 
-class ArchiveController extends BaseController
+class CompleteController extends BaseController
 {
 
   /**
@@ -38,31 +37,14 @@ class ArchiveController extends BaseController
     if (isset($_GET['semester'])) {
       $semester = $_GET['semester'];
       if ($semester != NULL) {
-        $dataLayout['semester'] = $this->service->filterSemesterArchive($semester);
+        $dataLayout['semester'] = $this->service->filterSemesterComplete($semester);
       }
     }
 
-    if (isset($_GET['search'])) {
-      $search = $_GET['search'];
-      if ($search != NULL) {
-        $dataLayout['search'] = $this->service->search($search);
-      }
-    }
-
-    $dataLayout['form'] = $this->service->getDataPaginateArchive();
-    $dataLayout['pager'] = $this->service->getPagerArchive();
-    $data = $this->loadMasterLayoutAdmin($data, 'Danh sách đơn phúc khảo', 'admin/pages/register/listArchive', $dataLayout, $cssFile, $jsFile);
+    $dataLayout['form'] = $this->service->getDataPaginateComplete();
+    $dataLayout['pager'] = $this->service->getPagerComplete();
+    $data = $this->loadMasterLayoutAdmin($data, 'Danh sách đơn phúc khảo', 'admin/pages/register/listComplete', $dataLayout, $cssFile, $jsFile);
     return view('admin/main', $data);
-  }
-
-  /**
-   * Edit info for Purchase
-   */
-
-  public function edit($id)
-  {
-    $result = $this->service->updateArchive($id);
-    return redirect('admin/archive/list')->with($result['messageCode'], $result['message']);
   }
 
   public function delete($id)
@@ -74,6 +56,6 @@ class ArchiveController extends BaseController
     }
 
     $result = $this->service->deleteArchive($id);
-    return redirect('admin/archive/list')->with($result['messageCode'], $result['message']);
+    return redirect('admin/complete/list')->with($result['messageCode'], $result['message']);
   }
 }

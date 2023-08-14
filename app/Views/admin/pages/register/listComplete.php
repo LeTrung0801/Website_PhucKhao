@@ -9,7 +9,7 @@
         <li class="breadcrumb-item">
           <a href="javascript:void(0)">Trang chủ</a>
         </li>
-        <li class="breadcrumb-item active">Đơn lưu trữ</li>
+        <li class="breadcrumb-item active">Đơn đã xử lý</li>
       </ol>
     </div>
   </div>
@@ -28,7 +28,7 @@
           <div class="d-flex mb-4 no-block " style="float: right;">
             <h5 class="card-title mb-0 align-self-center">Học kỳ :</h5>
             <div class="ms-auto">
-              <form method="get" action="admin/archive/list" class="d-flex">
+              <form method="get" action="admin/complete/list" class="d-flex">
                 <select class="form-select b-0" name="semester">
                   <option value="" selected>Học kỳ</option>
                   <option value="1">1</option>
@@ -83,11 +83,6 @@
                       </td>
                       <td>
                         <div class="button">
-                          <a href="admin/archive/upload/<?= $result['id'] ?>">
-                            <button type="button" class="btn btn-warning btn-reset-archive">
-                              <i class="fa-regular fa-pen-to-square"></i>
-                            </button>
-                          </a>
                           <a href="admin/archive/delete/<?= $result['id'] ?>">
                             <button type="button" class="btn btn-danger btn-delete-form ms-1">
                               <i class="fa-solid fa-trash-can"></i>
@@ -122,12 +117,7 @@
                       </td>
                       <td>
                         <div class="button">
-                          <a href="admin/archive/upload/<?= $result['id'] ?>">
-                            <button type="button" class="btn btn-warning btn-reset-archive">
-                              <i class="fa-regular fa-pen-to-square"></i>
-                            </button>
-                          </a>
-                          <a href="admin/archive/delete/<?= $result['id'] ?>">
+                          <a href="admin/complete/delete/<?= $result['id'] ?>">
                             <button type="button" class="btn btn-danger btn-delete-form ms-1">
                               <i class="fa-solid fa-trash-can"></i>
                             </button>

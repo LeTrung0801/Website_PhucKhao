@@ -36,7 +36,7 @@ class LoginController extends BaseController
         if ($result['status'] === ResultUtils::STATUS_CODE_OK) {
             return redirect('user/register/index');
         } elseif ($result['status'] === ResultUtils::STATUS_CODE_ERR) {
-            return redirect('login')->with($result['messageCode'], $result['message']);
+            return redirect('loginStudent')->with($result['messageCode'], $result['message']);
         } else {
             return redirect('home');
         }

@@ -78,6 +78,12 @@ $routes->group('admin', ['filter' => 'adminFilter'], static function ($routes) {
         $routes->get('profile/(:num)', 'Admin\UserController::list/$1');
         $routes->post('update', 'Admin\UserController::updateAccount');
     });
+
+    // Group Complete
+    $routes->group('complete', static function ($routes) {
+        $routes->get('list', 'Admin\CompleteController::list');
+        $routes->get('delete/(:num)', 'Admin\CompleteController::delete/$1');
+    });
 });
 
 /*

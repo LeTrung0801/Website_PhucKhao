@@ -14,7 +14,10 @@
         <a class="waves-effect waves-dark" href="admin/register/list" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Danh sách đơn</span></a>
       </li>
       <li>
-        <a class="waves-effect waves-dark" href="admin/archive/list" aria-expanded="false"><i class="fa fa-database"></i><span class="hide-menu">Đơn lưu trữ</span></a>
+        <a class="waves-effect waves-dark" href="admin/complete/list" aria-expanded="false"><i class="fa fa-database"></i><span class="hide-menu">Đơn đã xử lý</span></a>
+      </li>
+      <li>
+        <a class="waves-effect waves-dark" href="admin/archive/list" aria-expanded="false"><i class="fa fa-recycle"></i><span class="hide-menu">Đơn lưu trữ</span></a>
       </li>
     </ul>
 

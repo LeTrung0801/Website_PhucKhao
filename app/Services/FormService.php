@@ -135,7 +135,7 @@ class FormService extends BaseService
 
   public function getDataPaginate()
   {
-    return $this->form->where('flag !=', 1)
+    return $this->form->where('flag', 0)
       ->orderBy('id', 'DESC')->paginate(5);
   }
 
@@ -162,7 +162,17 @@ class FormService extends BaseService
       ->orderBy('id', 'DESC')->paginate(5);
   }
 
+  public function getDataPaginateComplete()
+  {
+    return $this->form->where('flag', 2)
+      ->orderBy('id', 'DESC')->paginate(5);
+  }
+
   public function getPagerArchive()
+  {
+    return $this->form->pager;
+  }
+  public function getPagerComplete()
   {
     return $this->form->pager;
   }
@@ -183,6 +193,25 @@ class FormService extends BaseService
 
   public function filterSemester($semester)
   {
+    return $this->form->where('semester', $semester)->find();
+  }
+
+  public function filterSemesterComplete($semester)
+  {
+    $query = ['semester' => $semester, 'flag' => 2];
+    return $this->form->where($query)->find();
+  }
+  public function filterSemesterArchive($semester)
+  {
+    $query = ['semester' => $semester, 'flag' => 1];
+    return $this->form->where($query)->find();
+  }
+  public function filterSemesterUser($semester)
+  {
+    if (isset($_SESSION['user_login'])) {
+      return $this->form->where('user_id', $_SESSION['user_login']['user_id'])
+        ->where('semester', $semester)->find();
+    }
     return $this->form->where('semester', $semester)->find();
   }
 
